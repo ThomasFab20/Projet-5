@@ -1,3 +1,5 @@
+// Déclaration des variables
+
 let img__slider = document.querySelectorAll('.banner-img')
 
 let suivant = document.querySelector('.arrow_right');
@@ -23,6 +25,8 @@ let tagLine = [
 
 let text = document.querySelector('#text-slider')
 
+// Fonction permettant d'ajouter les bullet points du caroussel
+
 function addDots(){
 	for (let i = 0; i < img__slider.length; i++){
 		let dots = document.querySelector('.dots');
@@ -36,10 +40,15 @@ function addDots(){
 
 }
 
+// On appelle la fonction qui crée les bullet points
+
 addDots()
 
+// Déclaration de la variable nous permettant d'utiliser les bullets points créés lors de la fonction précédente
 
 let bullets = document.querySelectorAll('.dot')
+
+// On défini le premier bullet point du caroussel comme étant sélectionné
 
 function dotSelected(){
 	bullets[0].classList.add('dot_selected');
@@ -48,6 +57,7 @@ function dotSelected(){
 dotSelected()
 
 
+// Fonction qui enlève la classe active de l'image et la sélection du bullet point au fur et à mesure qu'on avance dans le caroussel
 
 function enleverActiveImage(){
 	for(let i = 0 ; i < nbr__img; i ++){
@@ -56,6 +66,7 @@ function enleverActiveImage(){
 	}
 }
 
+// Au clic sur les flèches du caroussel, on incrémente l'étape et en fonction de la valeur de cette étape, on ajoute à l'image ayant le même index la classe active et de même pour les bullet points
 
 suivant.addEventListener('click', function(){
 	etape++;
@@ -80,6 +91,8 @@ precedent.addEventListener('click', function(){
 
 	text.innerHTML = tagLine[etape];
 });
+
+// On défini ici une intervale par défaut après laquelle les images défileront automatiquement
 
 setInterval(function(){
 	etape++;
